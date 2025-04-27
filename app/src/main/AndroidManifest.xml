@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
 
     <application
         android:allowBackup="true"
@@ -22,12 +21,12 @@
             android:theme="@style/Theme.MoneyGateway">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".SmsReceiver"
-            android:label="SMS Receiver" android:exported="true">
+        <receiver
+            android:name=".SmsReceiver"
+            android:exported="true">
             <intent-filter >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
