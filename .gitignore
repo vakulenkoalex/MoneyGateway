@@ -14,8 +14,8 @@
 .cxx
 local.properties
 gradle-app.setting
-!gradle-wrapper.jar
-!gradle-wrapper.properties
+*.jar
+gradle-wrapper.properties
 **/build/
 !src/**/build/
 .idea/shelf/
