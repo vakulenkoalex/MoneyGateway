@@ -9,7 +9,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class PushListener : NotificationListenerService() {
-
     override fun onNotificationPosted(sbn: StatusBarNotification) {
 
         val packageName = sbn.packageName
