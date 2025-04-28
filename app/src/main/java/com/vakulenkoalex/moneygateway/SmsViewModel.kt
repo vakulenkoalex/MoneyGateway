@@ -11,8 +11,6 @@ class SmsViewModel(application: Application) : ViewModel() {
 
     val allSms: LiveData<List<Sms>>
     private val repository: SmsRepository
-    var smsText by mutableStateOf("")
-    var sender by mutableStateOf("")
 
     init {
         val smsDb = SmsRoomDatabase.getInstance(application)
@@ -20,15 +18,7 @@ class SmsViewModel(application: Application) : ViewModel() {
         repository = SmsRepository(smsDao)
         allSms = repository.allSms
     }
-    fun changeSmsText(value: String){
-        smsText = value
-    }
-    fun changeSender(value: String){
-        sender = value
-    }
-    fun addSms() {
-        repository.addSms(Sms(smsText, sender))
-    }
+
     fun deleteAllSms() {
         repository.deleteAllSms()
     }

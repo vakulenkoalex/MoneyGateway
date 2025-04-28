@@ -87,17 +87,6 @@ class MainActivity : ComponentActivity() {
 fun Main(vm: SmsViewModel) {
     val allSms by vm.allSms.observeAsState(listOf())
     Column {
-        OutlinedTextField(
-            vm.smsText,
-            modifier= Modifier.padding(8.dp),
-            label = { Text("Text") },
-            onValueChange = {vm.changeSmsText(it)})
-        OutlinedTextField(
-            vm.sender,
-            modifier= Modifier.padding(8.dp),
-            label = { Text("Sender") },
-            onValueChange = {vm.changeSender(it)})
-        Button({ vm.addSms() }, Modifier.padding(8.dp)) {Text("Add", fontSize = 22.sp)}
         Button({ vm.deleteAllSms() }, Modifier.padding(8.dp)) {Text("Delete", fontSize = 22.sp)}
         SmsList(allSms)
     }
