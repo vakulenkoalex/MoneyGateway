@@ -35,9 +35,11 @@ class SmsReceiver : BroadcastReceiver() {
         sender: String,
         message: String
     ) {
+        val smsDb = SmsRoomDatabase.getInstance(context)
+        val smsDao = smsDb.smsDao()
+        val repository = SmsRepository(smsDao)
         CoroutineScope(Dispatchers.IO).launch {
-            val smsDao = SmsRoomDatabase.getInstance(context).smsDao()
-            smsDao.addSms(
+            repository.addSms(
                 Sms(
                     sender = sender,
                     message = message,
