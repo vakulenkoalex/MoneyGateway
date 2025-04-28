@@ -2,6 +2,8 @@ package com.vakulenkoalex.moneygateway
 
 import android.Manifest
 import android.app.Application
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -25,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -46,6 +49,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        checkAndRequestPermissions()
+
         setContent {
             val owner = LocalViewModelStoreOwner.current
 
@@ -58,11 +63,23 @@ class MainActivity : ComponentActivity() {
                 Main(viewModel)
             }
         }
+    }
 
-        val permission = Manifest.permission.RECEIVE_SMS
-        if (ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_DENIED){
-            requestPermissions(arrayOf(permission), PackageManager.PERMISSION_GRANTED)
+    private fun checkAndRequestPermissions() {
+        val smsPermission = Manifest.permission.RECEIVE_SMS
+        if (ContextCompat.checkSelfPermission(this, smsPermission) == PackageManager.PERMISSION_DENIED){
+            requestPermissions(arrayOf(smsPermission), PackageManager.PERMISSION_GRANTED)
         }
+
+        if (! isNotificationAccessGranted(this)){
+            val intent = Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS")
+            startActivity(intent)
+        }
+    }
+
+    private fun isNotificationAccessGranted(context: Context): Boolean {
+        val packages = NotificationManagerCompat.getEnabledListenerPackages(context)
+        return packages.contains(context.packageName)
     }
 }
 
