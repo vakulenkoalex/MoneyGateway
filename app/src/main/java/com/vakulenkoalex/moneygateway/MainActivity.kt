@@ -70,15 +70,11 @@ class MainActivity : ComponentActivity() {
             requestPermissions(arrayOf(smsPermission), PackageManager.PERMISSION_GRANTED)
         }
 
-        if (! isNotificationAccessGranted(this)){
+        val packages = NotificationManagerCompat.getEnabledListenerPackages(this)
+        if (! packages.contains(this.packageName)){
             val intent = Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS")
             startActivity(intent)
         }
-    }
-
-    private fun isNotificationAccessGranted(context: Context): Boolean {
-        val packages = NotificationManagerCompat.getEnabledListenerPackages(context)
-        return packages.contains(context.packageName)
     }
 }
 
