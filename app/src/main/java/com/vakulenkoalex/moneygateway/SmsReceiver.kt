@@ -41,6 +41,7 @@ class SmsReceiver : BroadcastReceiver() {
                 Sms(
                     sender = sender,
                     message = message,
+                    type = SMSType.SMS
                 )
             )
         }

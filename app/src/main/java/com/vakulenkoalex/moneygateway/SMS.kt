@@ -1,6 +1,5 @@
 package com.vakulenkoalex.moneygateway
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -8,7 +7,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "sms")
 class Sms {
     @PrimaryKey(autoGenerate = true)
-    @NonNull
     @ColumnInfo(name = "id")
     var id: Int = 0
     @ColumnInfo(name = "message")
@@ -17,10 +15,13 @@ class Sms {
     var sender: String
     @ColumnInfo(name = "timestamp")
     var timestamp: Long
+    @ColumnInfo(name = "type")
+    var type: SMSType
 
-    constructor(message: String, sender: String) {
+    constructor(message: String, sender: String, type: SMSType) {
         this.message = message
         this.sender = sender
         this.timestamp = System.currentTimeMillis()
+        this.type = type
     }
 }

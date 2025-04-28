@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 @Database(entities = [(Sms::class)], version = 1)
+@TypeConverters(SMSTypeConverter::class)
 abstract class SmsRoomDatabase: RoomDatabase() {
 
     abstract fun smsDao(): SmsDao
@@ -20,8 +22,8 @@ abstract class SmsRoomDatabase: RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         SmsRoomDatabase::class.java,
-                        "usersdb"
-                    ).fallbackToDestructiveMigration().build()
+                        "gatewaydb"
+                    ).fallbackToDestructiveMigration(false).build()
                     INSTANCE = instance
                 }
                 return instance

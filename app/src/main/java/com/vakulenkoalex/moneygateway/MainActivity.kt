@@ -104,6 +104,7 @@ fun SmsRow(sms:Sms) {
         Text(sms.id.toString(), Modifier.weight(0.1f), fontSize = 22.sp)
         Text(sms.message, Modifier.weight(0.2f), fontSize = 22.sp)
         Text(sms.sender, Modifier.weight(0.2f), fontSize = 22.sp)
+        Text(sms.type.displayName, Modifier.weight(0.2f), fontSize = 22.sp)
     }
 }
 @Composable
@@ -112,6 +113,7 @@ fun SmsTitleRow() {
         Text("Id", color = Color.White,modifier = Modifier.weight(0.1f), fontSize = 22.sp)
         Text("Text", color = Color.White,modifier = Modifier.weight(0.2f), fontSize = 22.sp)
         Text("Sender", color = Color.White, modifier = Modifier.weight(0.2f), fontSize = 22.sp)
+        Text("Type", color = Color.White, modifier = Modifier.weight(0.2f), fontSize = 22.sp)
         Spacer(Modifier.weight(0.2f))
     }
 }
