@@ -6,7 +6,7 @@ enum class SMSType(val displayName: String) {
 
     companion object {
         fun fromDisplayName(displayName: String): SMSType {
-            return values().first { it.displayName == displayName }
+            return SMSType.entries.first { it.displayName == displayName }
         }
     }
 }
