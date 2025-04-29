@@ -18,7 +18,7 @@ import com.vakulenkoalex.moneygateway.room.Message
 @Composable
 fun MessageTableView(allMessage:List<Message>) {
     LazyColumn(Modifier.fillMaxWidth()) {
-        item{ MessageTitleRow() }
+        stickyHeader { MessageTitleRow() }
         items(allMessage){ u -> MessageRow(u) }
     }
 }
@@ -26,20 +26,19 @@ fun MessageTableView(allMessage:List<Message>) {
 @Composable
 fun MessageRow(message: Message) {
     Row(Modifier .fillMaxWidth().padding(5.dp)) {
+        Text(message.type.displayName, Modifier.weight(0.1f), fontSize = 22.sp)
         Text(message.id.toString(), Modifier.weight(0.1f), fontSize = 22.sp)
-        Text(message.text, Modifier.weight(0.2f), fontSize = 22.sp)
-        Text(message.sender, Modifier.weight(0.2f), fontSize = 22.sp)
-        Text(message.type.displayName, Modifier.weight(0.2f), fontSize = 22.sp)
+        Text(message.text, Modifier.weight(0.4f), fontSize = 22.sp)
+        Text(message.sender, Modifier.weight(0.3f), fontSize = 22.sp)
     }
 }
 
 @Composable
 fun MessageTitleRow() {
     Row(Modifier.background(Color.LightGray).fillMaxWidth().padding(5.dp)) {
+        Text("Тип", color = Color.White, modifier = Modifier.weight(0.1f), fontSize = 22.sp)
         Text("Id", color = Color.White,modifier = Modifier.weight(0.1f), fontSize = 22.sp)
-        Text("Text", color = Color.White,modifier = Modifier.weight(0.2f), fontSize = 22.sp)
-        Text("Sender", color = Color.White, modifier = Modifier.weight(0.2f), fontSize = 22.sp)
-        Text("Type", color = Color.White, modifier = Modifier.weight(0.2f), fontSize = 22.sp)
-        Spacer(Modifier.weight(0.2f))
+        Text("Текст", color = Color.White,modifier = Modifier.weight(0.4f), fontSize = 22.sp)
+        Text("Отправитель", color = Color.White, modifier = Modifier.weight(0.3f), fontSize = 22.sp)
     }
 }
