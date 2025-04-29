@@ -9,6 +9,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -16,14 +19,17 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun MessageView(vm: MainViewModel) {
     val allMessage by vm.allMessage.observeAsState(listOf())
-    val debugMode by vm.debugMode
+    var debugMode by remember { mutableStateOf(false) }
 
     Column {
         Button({ vm.deleteAllMessage() }, Modifier.padding(8.dp)) {Text("Delete", fontSize = 22.sp)}
         Row{
             Checkbox(
                 checked = debugMode,
-                onCheckedChange = { vm.toggleDebugMode(it) }
+                onCheckedChange = {
+                    debugMode = it
+                    MessageHelper.setDebugMode(it)
+                }
             )
             Text("Сохранять все сообщения", fontSize = 20.sp, modifier = Modifier.padding(12.dp))
         }

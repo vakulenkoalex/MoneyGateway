@@ -6,15 +6,14 @@ import android.service.notification.StatusBarNotification
 
 class PushListener : NotificationListenerService() {
     override fun onNotificationPosted(sbn: StatusBarNotification) {
-
         val packageName = sbn.packageName
         val extras = sbn.notification.extras
         val text = extras.getString(Notification.EXTRA_TEXT) ?: "Unknown"
-        Common.saveToDatabase(
+        MessageHelper.saveToDatabase(
             context = this,
-            type = SMSType.PUSH,
+            type = MessageType.PUSH,
             sender = packageName,
-            message = text)
-
+            text = text
+        )
     }
 }

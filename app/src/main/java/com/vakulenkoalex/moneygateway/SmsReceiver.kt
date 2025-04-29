@@ -7,8 +7,6 @@ import android.provider.Telephony
 import android.telephony.SmsMessage
 
 class SmsReceiver : BroadcastReceiver() {
-    var viewModel: MainViewModel? = null
-
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action != Telephony.Sms.Intents.SMS_RECEIVED_ACTION) return
         val bundle = intent.extras ?: return
@@ -19,10 +17,11 @@ class SmsReceiver : BroadcastReceiver() {
             val message = SmsMessage.createFromPdu(bytes, format)
             val sender = message.displayOriginatingAddress?: "Unknown"
             val body = message.messageBody?: "Unknown"
-            viewModel?.saveToDatabase(
+            MessageHelper.saveToDatabase(
+                context = context,
                 type = MessageType.SMS,
                 sender = sender,
-                message = body)
+                text = body)
         }
     }
 }
