@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import com.vakulenkoalex.moneygateway.SaveHelper
 
 @Composable
-fun MessageView(viewModel: MainViewModel) {
+fun MainView(viewModel: MainViewModel) {
     val allMessage by viewModel.allMessage.observeAsState(listOf())
     var debugMode by remember { mutableStateOf(false) }
 

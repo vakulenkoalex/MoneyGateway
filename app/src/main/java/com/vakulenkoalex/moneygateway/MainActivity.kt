@@ -14,7 +14,7 @@ import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.vakulenkoalex.moneygateway.view.MainViewModel
 import com.vakulenkoalex.moneygateway.view.MainViewModelFactory
-import com.vakulenkoalex.moneygateway.view.MessageView
+import com.vakulenkoalex.moneygateway.view.MainView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     "MainViewModel",
                     MainViewModelFactory(LocalContext.current.applicationContext as Application)
                 )
-                MessageView(viewModel)
+                MainView(viewModel)
             }
         }
     }
