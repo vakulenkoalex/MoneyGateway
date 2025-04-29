@@ -18,12 +18,12 @@ import androidx.compose.ui.unit.sp
 import com.vakulenkoalex.moneygateway.SaveHelper
 
 @Composable
-fun MessageView(vm: MainViewModel) {
-    val allMessage by vm.allMessage.observeAsState(listOf())
+fun MessageView(viewModel: MainViewModel) {
+    val allMessage by viewModel.allMessage.observeAsState(listOf())
     var debugMode by remember { mutableStateOf(false) }
 
     Column {
-        Button({ vm.deleteAllMessage() }, Modifier.padding(8.dp)) {Text("Delete", fontSize = 22.sp)}
+        Button({ viewModel.deleteAllMessage() }, Modifier.padding(8.dp)) {Text("Удалить все", fontSize = 22.sp)}
         Row{
             Checkbox(
                 checked = debugMode,
