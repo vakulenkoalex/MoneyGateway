@@ -10,7 +10,11 @@ class PushListener : NotificationListenerService() {
         val packageName = sbn.packageName
         val extras = sbn.notification.extras
         val text = extras.getString(Notification.EXTRA_TEXT) ?: "Unknown"
-        Common.saveToDatabase(SMSType.PUSH, this, packageName, text)
+        Common.saveToDatabase(
+            context = this,
+            type = SMSType.PUSH,
+            sender = packageName,
+            message = text)
 
     }
 }

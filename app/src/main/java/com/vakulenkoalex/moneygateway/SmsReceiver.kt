@@ -19,7 +19,11 @@ class SmsReceiver : BroadcastReceiver() {
             val message = SmsMessage.createFromPdu(bytes, format)
             val sender = message.displayOriginatingAddress?: "Unknown"
             val body = message.messageBody?: "Unknown"
-            Common.saveToDatabase(SMSType.SMS, context, sender, body)
+            Common.saveToDatabase(
+                context = context,
+                type = SMSType.SMS,
+                sender = sender,
+                message = body)
         }
     }
 }
