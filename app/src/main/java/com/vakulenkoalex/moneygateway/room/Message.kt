@@ -17,11 +17,14 @@ class Message {
     var timestamp: Long
     @ColumnInfo(name = "type")
     var type: MessageType
+    @ColumnInfo(name = "findSender")
+    var findSender: Boolean
 
-    constructor(text: String, sender: String, type: MessageType) {
+    constructor(text: String, sender: String, type: MessageType, findSender: Boolean) {
         this.text = text
         this.sender = sender
         this.timestamp = System.currentTimeMillis()
         this.type = type
+        this.findSender = findSender
     }
 }

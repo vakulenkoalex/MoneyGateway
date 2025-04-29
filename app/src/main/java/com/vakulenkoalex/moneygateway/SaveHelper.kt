@@ -33,7 +33,8 @@ object SaveHelper {
                     Message(
                         sender = sender,
                         text = text,
-                        type = type
+                        type = type,
+                        findSender = (findSender != null)
                     )
                 )
             }

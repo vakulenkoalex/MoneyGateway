@@ -25,8 +25,12 @@ fun MessageTableView(allMessage:List<Message>) {
 
 @Composable
 fun MessageRow(message: Message) {
+    var colorType = Color.Black
+    if (message.findSender){
+        colorType = Color.Red
+    }
     Row(Modifier .fillMaxWidth().padding(5.dp)) {
-        Text(message.type.displayName, Modifier.weight(0.1f), fontSize = 22.sp)
+        Text(message.type.displayName, Modifier.weight(0.1f), fontSize = 22.sp, color = colorType)
         Text(message.id.toString(), Modifier.weight(0.1f), fontSize = 22.sp)
         Text(message.text, Modifier.weight(0.4f), fontSize = 22.sp)
         Text(message.sender, Modifier.weight(0.3f), fontSize = 22.sp)
