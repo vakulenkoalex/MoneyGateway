@@ -3,8 +3,10 @@ package com.vakulenkoalex.moneygateway
 import android.Manifest
 import android.app.Application
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.provider.Telephony
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.ui.platform.LocalContext
@@ -14,6 +16,8 @@ import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 class MainActivity : ComponentActivity() {
+    private val smsReceiver = SmsReceiver()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,6 +32,7 @@ class MainActivity : ComponentActivity() {
                     "SmsViewModel",
                     MainViewModelFactory(LocalContext.current.applicationContext as Application)
                 )
+                smsReceiver.viewModel = viewModel
                 MessageView(viewModel)
             }
         }
@@ -44,5 +49,15 @@ class MainActivity : ComponentActivity() {
             val intent = Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS")
             startActivity(intent)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        registerReceiver(smsReceiver, IntentFilter(Telephony.Sms.Intents.SMS_RECEIVED_ACTION))
+    }
+
+    override fun onStop() {
+        super.onStop()
+        unregisterReceiver(smsReceiver)
     }
 }
