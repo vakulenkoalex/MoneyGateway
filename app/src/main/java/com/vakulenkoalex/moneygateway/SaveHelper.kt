@@ -1,11 +1,11 @@
 package com.vakulenkoalex.moneygateway
 
 import android.content.Context
-import com.vakulenkoalex.moneygateway.Room.GatewayRoomDatabase
-import com.vakulenkoalex.moneygateway.Room.Message
-import com.vakulenkoalex.moneygateway.Room.MessageRepository
-import com.vakulenkoalex.moneygateway.Room.MessageType
-import com.vakulenkoalex.moneygateway.Sender.SenderRegistry
+import com.vakulenkoalex.moneygateway.room.GatewayRoomDatabase
+import com.vakulenkoalex.moneygateway.room.Message
+import com.vakulenkoalex.moneygateway.room.MessageRepository
+import com.vakulenkoalex.moneygateway.room.MessageType
+import com.vakulenkoalex.moneygateway.sender.SenderRegistry
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

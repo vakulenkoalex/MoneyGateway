@@ -1,11 +1,11 @@
-package com.vakulenkoalex.moneygateway.View
+package com.vakulenkoalex.moneygateway.view
 
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.vakulenkoalex.moneygateway.Room.GatewayRoomDatabase
-import com.vakulenkoalex.moneygateway.Room.Message
-import com.vakulenkoalex.moneygateway.Room.MessageRepository
+import com.vakulenkoalex.moneygateway.room.GatewayRoomDatabase
+import com.vakulenkoalex.moneygateway.room.Message
+import com.vakulenkoalex.moneygateway.room.MessageRepository
 
 class MainViewModel(application: Application) : ViewModel() {
     val allMessage: LiveData<List<Message>>

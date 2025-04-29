@@ -1,4 +1,4 @@
-package com.vakulenkoalex.moneygateway.View
+package com.vakulenkoalex.moneygateway.view
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

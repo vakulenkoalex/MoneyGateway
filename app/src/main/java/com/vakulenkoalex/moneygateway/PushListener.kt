@@ -3,7 +3,7 @@ package com.vakulenkoalex.moneygateway
 import android.app.Notification
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import com.vakulenkoalex.moneygateway.Room.MessageType
+import com.vakulenkoalex.moneygateway.room.MessageType
 
 class PushListener : NotificationListenerService() {
     override fun onNotificationPosted(sbn: StatusBarNotification) {

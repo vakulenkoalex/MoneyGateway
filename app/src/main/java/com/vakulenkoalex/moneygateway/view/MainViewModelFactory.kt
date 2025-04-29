@@ -1,4 +1,4 @@
-package com.vakulenkoalex.moneygateway.View
+package com.vakulenkoalex.moneygateway.view
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

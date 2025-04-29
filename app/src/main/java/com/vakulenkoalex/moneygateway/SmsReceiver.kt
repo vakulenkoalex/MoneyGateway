@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.provider.Telephony
 import android.telephony.SmsMessage
-import com.vakulenkoalex.moneygateway.Room.MessageType
+import com.vakulenkoalex.moneygateway.room.MessageType
 
 class SmsReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

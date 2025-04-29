@@ -1,4 +1,4 @@
-package com.vakulenkoalex.moneygateway.Room
+package com.vakulenkoalex.moneygateway.room
 
 enum class MessageType(val displayName: String) {
     SMS("SMS"),
