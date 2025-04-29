@@ -1,4 +1,4 @@
-package com.vakulenkoalex.moneygateway
+package com.vakulenkoalex.moneygateway.View
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vakulenkoalex.moneygateway.Room.Message
 
 @Composable
 fun MessageTableView(allMessage:List<Message>) {
@@ -23,7 +24,7 @@ fun MessageTableView(allMessage:List<Message>) {
 }
 
 @Composable
-fun MessageRow(message:Message) {
+fun MessageRow(message: Message) {
     Row(Modifier .fillMaxWidth().padding(5.dp)) {
         Text(message.id.toString(), Modifier.weight(0.1f), fontSize = 22.sp)
         Text(message.text, Modifier.weight(0.2f), fontSize = 22.sp)

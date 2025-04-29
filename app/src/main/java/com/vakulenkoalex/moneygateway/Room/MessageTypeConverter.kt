@@ -1,4 +1,4 @@
-package com.vakulenkoalex.moneygateway
+package com.vakulenkoalex.moneygateway.Room
 
 import androidx.room.TypeConverter
 

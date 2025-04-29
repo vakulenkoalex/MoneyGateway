@@ -1,4 +1,4 @@
-package com.vakulenkoalex.moneygateway
+package com.vakulenkoalex.moneygateway.View
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,6 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vakulenkoalex.moneygateway.SaveHelper
 
 @Composable
 fun MessageView(vm: MainViewModel) {
@@ -28,7 +29,7 @@ fun MessageView(vm: MainViewModel) {
                 checked = debugMode,
                 onCheckedChange = {
                     debugMode = it
-                    MessageHelper.setDebugMode(it)
+                    SaveHelper.setDebugMode(it)
                 }
             )
             Text("Сохранять все сообщения", fontSize = 20.sp, modifier = Modifier.padding(12.dp))

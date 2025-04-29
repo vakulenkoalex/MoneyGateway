@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.provider.Telephony
 import android.telephony.SmsMessage
+import com.vakulenkoalex.moneygateway.Room.MessageType
 
 class SmsReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
@@ -17,7 +18,7 @@ class SmsReceiver : BroadcastReceiver() {
             val message = SmsMessage.createFromPdu(bytes, format)
             val sender = message.displayOriginatingAddress?: "Unknown"
             val body = message.messageBody?: "Unknown"
-            MessageHelper.saveToDatabase(
+            SaveHelper.saveToDatabase(
                 context = context,
                 type = MessageType.SMS,
                 sender = sender,

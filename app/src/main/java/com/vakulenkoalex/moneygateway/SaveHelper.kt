@@ -1,11 +1,16 @@
 package com.vakulenkoalex.moneygateway
 
 import android.content.Context
+import com.vakulenkoalex.moneygateway.Room.GatewayRoomDatabase
+import com.vakulenkoalex.moneygateway.Room.Message
+import com.vakulenkoalex.moneygateway.Room.MessageRepository
+import com.vakulenkoalex.moneygateway.Room.MessageType
+import com.vakulenkoalex.moneygateway.Sender.SenderRegistry
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-object MessageHelper {
+object SaveHelper {
     var debugMode: Boolean = false
         private set
 

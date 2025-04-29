@@ -12,6 +12,9 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.vakulenkoalex.moneygateway.View.MainViewModel
+import com.vakulenkoalex.moneygateway.View.MainViewModelFactory
+import com.vakulenkoalex.moneygateway.View.MessageView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

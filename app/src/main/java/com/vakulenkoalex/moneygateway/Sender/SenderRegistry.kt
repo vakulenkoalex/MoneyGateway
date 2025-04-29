@@ -1,4 +1,6 @@
-package com.vakulenkoalex.moneygateway
+package com.vakulenkoalex.moneygateway.Sender
+
+import com.vakulenkoalex.moneygateway.Sender.TBankSmsSender
 
 object SenderRegistry {
     private val registry = mutableMapOf<String, Class<out Sender>>()

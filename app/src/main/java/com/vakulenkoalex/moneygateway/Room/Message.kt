@@ -1,8 +1,9 @@
-package com.vakulenkoalex.moneygateway
+package com.vakulenkoalex.moneygateway.Room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.vakulenkoalex.moneygateway.Room.MessageType
 
 @Entity(tableName = "message")
 class Message {
