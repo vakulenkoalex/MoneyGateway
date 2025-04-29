@@ -5,20 +5,20 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SmsRepository(private val smsDao: SmsDao) {
+class MessageRepository(private val messageDao: MessageDao) {
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
-    val allSms: LiveData<List<Sms>> = smsDao.getAllSms()
+    val allMessage: LiveData<List<Message>> = messageDao.getAllMessage()
 
-    fun addSms(sms: Sms) {
+    fun addMessage(message: Message) {
         coroutineScope.launch(Dispatchers.IO) {
-            smsDao.addSms(sms)
+            messageDao.addMessage(message)
         }
     }
 
-    fun deleteAllSms() {
+    fun deleteAllMessage() {
         coroutineScope.launch(Dispatchers.IO) {
-            smsDao.deleteAllSms()
+            messageDao.deleteAllMessage()
         }
     }
 

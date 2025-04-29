@@ -6,22 +6,22 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@Database(entities = [(Sms::class)], version = 1)
-@TypeConverters(SMSTypeConverter::class)
-abstract class SmsRoomDatabase: RoomDatabase() {
+@Database(entities = [(Message::class)], version = 1)
+@TypeConverters(MessageTypeConverter::class)
+abstract class GatewayRoomDatabase: RoomDatabase() {
 
-    abstract fun smsDao(): SmsDao
+    abstract fun messageDao(): MessageDao
 
     companion object {
-        private var INSTANCE: SmsRoomDatabase? = null
-        fun getInstance(context: Context): SmsRoomDatabase {
+        private var INSTANCE: GatewayRoomDatabase? = null
+        fun getInstance(context: Context): GatewayRoomDatabase {
 
             synchronized(this) {
                 var instance = INSTANCE
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        SmsRoomDatabase::class.java,
+                        GatewayRoomDatabase::class.java,
                         "gatewaydb"
                     ).fallbackToDestructiveMigration(false).build()
                     INSTANCE = instance

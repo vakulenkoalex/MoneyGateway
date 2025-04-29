@@ -15,25 +15,25 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun MessageTableView(allSms:List<Sms>) {
+fun MessageTableView(allMessage:List<Message>) {
     LazyColumn(Modifier.fillMaxWidth()) {
-        item{ SmsTitleRow() }
-        items(allSms){ u -> SmsRow(u) }
+        item{ MessageTitleRow() }
+        items(allMessage){ u -> MessageRow(u) }
     }
 }
 
 @Composable
-fun SmsRow(sms:Sms) {
+fun MessageRow(message:Message) {
     Row(Modifier .fillMaxWidth().padding(5.dp)) {
-        Text(sms.id.toString(), Modifier.weight(0.1f), fontSize = 22.sp)
-        Text(sms.message, Modifier.weight(0.2f), fontSize = 22.sp)
-        Text(sms.sender, Modifier.weight(0.2f), fontSize = 22.sp)
-        Text(sms.type.displayName, Modifier.weight(0.2f), fontSize = 22.sp)
+        Text(message.id.toString(), Modifier.weight(0.1f), fontSize = 22.sp)
+        Text(message.text, Modifier.weight(0.2f), fontSize = 22.sp)
+        Text(message.sender, Modifier.weight(0.2f), fontSize = 22.sp)
+        Text(message.type.displayName, Modifier.weight(0.2f), fontSize = 22.sp)
     }
 }
 
 @Composable
-fun SmsTitleRow() {
+fun MessageTitleRow() {
     Row(Modifier.background(Color.LightGray).fillMaxWidth().padding(5.dp)) {
         Text("Id", color = Color.White,modifier = Modifier.weight(0.1f), fontSize = 22.sp)
         Text("Text", color = Color.White,modifier = Modifier.weight(0.2f), fontSize = 22.sp)

@@ -15,11 +15,11 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun MessageView(vm: MainViewModel) {
-    val allSms by vm.allSms.observeAsState(listOf())
+    val allMessage by vm.allMessage.observeAsState(listOf())
     val debugMode by vm.debugMode
 
     Column {
-        Button({ vm.deleteAllSms() }, Modifier.padding(8.dp)) {Text("Delete", fontSize = 22.sp)}
+        Button({ vm.deleteAllMessage() }, Modifier.padding(8.dp)) {Text("Delete", fontSize = 22.sp)}
         Row{
             Checkbox(
                 checked = debugMode,
@@ -27,6 +27,6 @@ fun MessageView(vm: MainViewModel) {
             )
             Text("Сохранять все сообщения", fontSize = 20.sp, modifier = Modifier.padding(12.dp))
         }
-        MessageTableView(allSms)
+        MessageTableView(allMessage)
     }
 }

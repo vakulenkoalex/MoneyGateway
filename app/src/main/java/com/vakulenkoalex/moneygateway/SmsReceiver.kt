@@ -20,7 +20,7 @@ class SmsReceiver : BroadcastReceiver() {
             val sender = message.displayOriginatingAddress?: "Unknown"
             val body = message.messageBody?: "Unknown"
             viewModel?.saveToDatabase(
-                type = SMSType.SMS,
+                type = MessageType.SMS,
                 sender = sender,
                 message = body)
         }

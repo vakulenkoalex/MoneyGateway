@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
             owner?.let {
                 val viewModel: MainViewModel = viewModel(
                     it,
-                    "SmsViewModel",
+                    "MainViewModel",
                     MainViewModelFactory(LocalContext.current.applicationContext as Application)
                 )
                 smsReceiver.viewModel = viewModel
