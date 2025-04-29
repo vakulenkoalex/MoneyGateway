@@ -23,10 +23,10 @@ class MainActivity : ComponentActivity() {
             val owner = LocalViewModelStoreOwner.current
 
             owner?.let {
-                val viewModel: SmsViewModel = viewModel(
+                val viewModel: MainViewModel = viewModel(
                     it,
                     "SmsViewModel",
-                    SmsViewModelFactory(LocalContext.current.applicationContext as Application)
+                    MainViewModelFactory(LocalContext.current.applicationContext as Application)
                 )
                 MessageView(viewModel)
             }
