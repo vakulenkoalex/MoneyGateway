@@ -5,7 +5,8 @@ object SenderRegistry {
 
     init {
         register("com.idamob.tinkoff.android", TBankPushSender::class.java)
-        register("900", TBankSmsSender::class.java)
+        register("900", SberbankSmsSender::class.java)
+        register("T-Bank", TBankSmsSender::class.java)
     }
 
     fun register(type: String, clazz: Class<out Sender>) {

@@ -1,5 +1,5 @@
 package com.vakulenkoalex.moneygateway.sender
 
 class TBankSmsSender : Sender {
-    override var name = "TBankSmsSender"
+    override var name = "T-Bank"
 }

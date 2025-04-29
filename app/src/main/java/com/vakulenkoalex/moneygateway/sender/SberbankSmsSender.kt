@@ -1,5 +1,5 @@
 package com.vakulenkoalex.moneygateway.sender
 
 class SberbankSmsSender : Sender {
-    override var name = "SberbankSmsSender"
+    override var name = "900"
 }
