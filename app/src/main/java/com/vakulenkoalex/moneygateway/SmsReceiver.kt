@@ -16,13 +16,13 @@ class SmsReceiver : BroadcastReceiver() {
         pdus?.forEach { pdu ->
             val bytes = pdu as? ByteArray
             val message = SmsMessage.createFromPdu(bytes, format)
-            val sender = message.displayOriginatingAddress?: "Unknown"
-            val body = message.messageBody?: "Unknown"
+            val sender = message.displayOriginatingAddress
+            val text = message.messageBody
             SaveHelper.saveToDatabase(
                 context = context,
                 type = MessageType.SMS,
                 sender = sender,
-                text = body)
+                text = text)
         }
     }
 }

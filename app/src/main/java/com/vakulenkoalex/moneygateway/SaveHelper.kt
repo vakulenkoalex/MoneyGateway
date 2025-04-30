@@ -22,17 +22,18 @@ object SaveHelper {
         context: Context,
         type: MessageType,
         sender: String,
-        text: String
+        text: String?
     ) {
         val gatewayDatabase = GatewayRoomDatabase.getInstance(context)
         val repository = MessageRepository(gatewayDatabase.messageDao())
         CoroutineScope(Dispatchers.IO).launch {
             val findSender = SenderRegistry.getSender(sender)
-            if (debugMode or (findSender != null)) {
+            val correctMessage = (findSender != null) and (text != null)
+            if (debugMode or correctMessage) {
                 repository.addMessage(
                     Message(
                         sender = sender,
-                        text = text,
+                        text = text?: "Unknown",
                         type = type,
                         findSender = (findSender != null)
                     )
