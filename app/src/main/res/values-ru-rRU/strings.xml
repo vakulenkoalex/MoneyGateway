@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Шлюз</string>
+    <string name="delete_message">Удалить</string>
+    <string name="save_all_message">Сохранять все</string>
+    <string name="type">тип</string>
+    <string name="text">текст</string>
+    <string name="sender">отпр.</string>
 </resources>

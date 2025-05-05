@@ -11,8 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vakulenkoalex.moneygateway.R
 import com.vakulenkoalex.moneygateway.room.Message
 
 @Composable
@@ -40,9 +42,20 @@ fun MessageRow(message: Message) {
 @Composable
 fun MessageTitleRow() {
     Row(Modifier.background(Color.LightGray).fillMaxWidth().padding(5.dp)) {
-        Text("Тип", color = Color.White, modifier = Modifier.weight(0.1f), fontSize = 22.sp)
-        Text("Id", color = Color.White,modifier = Modifier.weight(0.1f), fontSize = 22.sp)
-        Text("Текст", color = Color.White,modifier = Modifier.weight(0.4f), fontSize = 22.sp)
-        Text("Отправитель", color = Color.White, modifier = Modifier.weight(0.3f), fontSize = 22.sp)
+        Text(stringResource(R.string.type),
+            color = Color.White,
+            modifier = Modifier.weight(0.1f),
+            fontSize = 22.sp)
+        Text("id", color = Color.White,modifier = Modifier.weight(0.1f), fontSize = 22.sp)
+        Text(
+            stringResource(R.string.text),
+            color = Color.White,
+            modifier = Modifier.weight(0.4f),
+            fontSize = 22.sp)
+        Text(
+            stringResource(R.string.sender),
+            color = Color.White,
+            modifier = Modifier.weight(0.3f),
+            fontSize = 22.sp)
     }
 }

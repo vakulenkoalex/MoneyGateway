@@ -13,8 +13,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vakulenkoalex.moneygateway.R
 import com.vakulenkoalex.moneygateway.SaveHelper
 
 @Composable
@@ -23,7 +25,8 @@ fun MainView(viewModel: MainViewModel) {
     var debugMode by remember { mutableStateOf(false) }
 
     Column {
-        Button({ viewModel.deleteAllMessage() }, Modifier.padding(8.dp)) {Text("Удалить все", fontSize = 22.sp)}
+        Button({ viewModel.deleteAllMessage() }, Modifier.padding(8.dp))
+        { Text(stringResource(R.string.delete_message), fontSize = 22.sp) }
         Row{
             Checkbox(
                 checked = debugMode,
@@ -32,7 +35,9 @@ fun MainView(viewModel: MainViewModel) {
                     SaveHelper.setDebugMode(it)
                 }
             )
-            Text("Сохранять все сообщения", fontSize = 20.sp, modifier = Modifier.padding(12.dp))
+            Text(stringResource(R.string.save_all_message),
+                fontSize = 20.sp,
+                modifier = Modifier.padding(12.dp))
         }
         MessageTableView(allMessage)
     }
