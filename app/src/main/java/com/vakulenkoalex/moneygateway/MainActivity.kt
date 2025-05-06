@@ -38,7 +38,8 @@ class MainActivity : ComponentActivity() {
 
     private fun checkAndRequestPermissions() {
         val smsPermission = Manifest.permission.RECEIVE_SMS
-        if (ContextCompat.checkSelfPermission(this, smsPermission) == PackageManager.PERMISSION_DENIED){
+        val checkSmsPermission = ContextCompat.checkSelfPermission(this, smsPermission)
+        if (checkSmsPermission == PackageManager.PERMISSION_DENIED){
             requestPermissions(arrayOf(smsPermission), PackageManager.PERMISSION_GRANTED)
         }
 
