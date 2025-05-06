@@ -4,6 +4,7 @@ import android.app.Notification
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import com.vakulenkoalex.moneygateway.room.MessageType
+import com.vakulenkoalex.moneygateway.view.SaveHelper
 
 class PushListener : NotificationListenerService() {
     override fun onNotificationPosted(sbn: StatusBarNotification) {

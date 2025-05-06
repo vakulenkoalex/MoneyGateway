@@ -1,4 +1,4 @@
-package com.vakulenkoalex.moneygateway
+package com.vakulenkoalex.moneygateway.view
 
 import android.content.Context
 import com.vakulenkoalex.moneygateway.room.GatewayRoomDatabase
@@ -24,7 +24,7 @@ object SaveHelper {
         sender: String,
         text: String?
     ) {
-        val gatewayDatabase = GatewayRoomDatabase.getInstance(context)
+        val gatewayDatabase = GatewayRoomDatabase.Companion.getInstance(context)
         val repository = MessageRepository(gatewayDatabase.messageDao())
         CoroutineScope(Dispatchers.IO).launch {
             val findSender = SenderRegistry.getSender(sender)
@@ -33,7 +33,7 @@ object SaveHelper {
                 repository.addMessage(
                     Message(
                         sender = sender,
-                        text = text?: "Unknown",
+                        text = text ?: "Unknown",
                         type = type,
                         findSender = (findSender != null)
                     )
