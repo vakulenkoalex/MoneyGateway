@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.devtoolsKsp)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.secrets.gradle.plugin)
 }
 
 android {
@@ -16,6 +17,8 @@ android {
         targetSdk = 35
         versionCode = 4
         versionName = "4.0"
+        buildConfigField("String", "FIREFLY_API_TOKEN", "\"${project.findProperty("FIREFLY_API_TOKEN") ?: ""}\"")
+        buildConfigField("String", "FIREFLY_SERVER", "\"${project.findProperty("FIREFLY_SERVER") ?: ""}\"")
     }
 
     buildTypes {
@@ -36,11 +39,15 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
-dependencies {
+secrets {
+    propertiesFileName = "secrets.properties"
+}
 
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
