@@ -1,36 +1,22 @@
 package com.vakulenkoalex.moneygateway
 
+import kotlinx.serialization.Serializable
 import okhttp3.Interceptor
 import okhttp3.Response
-import retrofit2.http.Body
-import retrofit2.http.POST
-import java.time.OffsetDateTime
-import retrofit2.Response as rResponse
 
-interface FireflyService {
-    @POST("transactions")
-    suspend fun createTransactions(@Body data: FireflyTransactions): rResponse<FireflyResponse>
-}
-
-data class FireflyResponse(val result: String)
-
+@Serializable
 data class FireflyTransactions(
     val transactions: List<FireflyTransaction>
 )
 
+@Serializable
 data class FireflyTransaction(
-    val type: FireflyTransactionType,
-    val date: OffsetDateTime,
+    val type: String,
+    val date: String,
     val amount: Double,
     val description: String,
     val source_id: String
 )
-
-enum class FireflyTransactionType {
-    WITHDRAWAL,
-    DEPOSIT,
-    TRANSFER
-}
 
 class AuthInterceptor(private val token: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {

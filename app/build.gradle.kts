@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.devtoolsKsp)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -55,8 +56,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     annotationProcessor(libs.androidx.room.room.compiler)
     ksp(libs.androidx.room.room.compiler)
-    implementation(libs.retrofit)
     implementation(libs.okhttp)
-    implementation(libs.retrofit.gson)
     implementation(libs.okhttp.logging)
+    implementation(libs.kotlinx.serialization.json)
 }
