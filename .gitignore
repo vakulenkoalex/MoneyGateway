@@ -39,3 +39,4 @@ gradle-wrapper.properties
 .idea/jarRepositories.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/deploymentTargetSelector.xml
+/secrets.properties
